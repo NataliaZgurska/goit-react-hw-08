@@ -1,0 +1,65 @@
+.formAddContainer {
+  width: 800px;
+  /* border: 2px solid gray;
+  border-radius: 4px; */
+  padding: 12px;
+  margin: 0 auto;
+}
+
+.formAdd {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: start;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.NameNumberContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: start;
+  justify-content: center;
+}
+
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  /* gap: 6px; */
+}
+
+.formInput {
+  width: 300px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+.errorMessage {
+  color: red;
+}
+
+.formAddBtn {
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background-color: #b8b8b894;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  margin: 0 auto;
+
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.formAddBtn:hover {
+  border-color: #646cff;
+}
+.formAddBtn:focus,
+.formAddBtn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
