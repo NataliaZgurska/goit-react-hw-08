@@ -3,6 +3,11 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
 import { addContact } from '../../redux/contacts/operations';
+import {
+  MAX_CHAR_NAME_VALIDATION,
+  MIN_CHAR_NAME_VALIDATION,
+} from '../../utils/constants';
+
 import css from './ContactForm.module.css';
 
 const FORM_INITIAL_VALUES = {
@@ -12,8 +17,8 @@ const FORM_INITIAL_VALUES = {
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
+    .min(MIN_CHAR_NAME_VALIDATION, 'Too Short!')
+    .max(MAX_CHAR_NAME_VALIDATION, 'Too Long!')
     .required('Required'),
   number: Yup.string()
     .min(3, 'Too Short!')

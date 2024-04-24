@@ -7,16 +7,24 @@ import {
   MAX_CHAR_NAME_VALIDATION,
   MIN_CHAR_NAME_VALIDATION,
   MIN_CHAR_PASSWORD_VALIDATION,
-} from '../utils/constants';
+} from '../../utils/constants';
 
-import css from './RegistrationPage/RegistrationPage.module.css';
+import css from './RegistrationPage.module.css';
 
 const FORM_INITIAL_VALUES = {
+  name: '',
   email: '',
   password: '',
 };
 
-const LoginSchema = Yup.object().shape({
+const RegistrationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(
+      MIN_CHAR_NAME_VALIDATION,
+      `Your user name must be less than ${MAX_CHAR_NAME_VALIDATION} characters!`
+    )
+    .max(MAX_CHAR_NAME_VALIDATION, 'Too Long!')
+    .required('Required'),
   email: Yup.string()
     .required('Email address is required!')
     .email('You must enter valid email address!'),
@@ -45,11 +53,27 @@ const RegistrationPage = () => {
     <div className={css.formAddContainer}>
       <Formik
         initialValues={FORM_INITIAL_VALUES}
-        validationSchema={LoginSchema}
+        validationSchema={RegistrationSchema}
         onSubmit={handleSubmit}
       >
         <Form className={css.formAdd}>
           <div className={css.NameNumberContainer}>
+            <label className={css.formLabel}>
+              <span>Name:</span>
+              <Field
+                type="text"
+                name="name"
+                // autoComplete="off"
+                placeholder="name"
+                className={css.formInput}
+              />
+              <ErrorMessage
+                className={css.errorMessage}
+                component="p"
+                name="name"
+              />
+            </label>
+
             <label className={css.formLabel}>
               <span>Email:</span>
               <Field
@@ -92,8 +116,8 @@ const RegistrationPage = () => {
 
 export default RegistrationPage;
 
-// const LoginPage = () => {
-//   return <div>LoginPage</div>;
+// const RegistrationPage = () => {
+//   return <div>RegistrationPage</div>;
 // };
 
-// export default LoginPage;
+// export default RegistrationPage;

@@ -3,7 +3,7 @@ import { Suspense, lazy } from 'react';
 
 // import Loader from './components/Loader/Loader';
 import HomePage from './pages/HomePage';
-import RegistrationPage from './pages/RegistrationPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 import { ContactsPage } from './pages/ContactsPage';
 import NotFoundPage from './pages/NotFoundPage';
