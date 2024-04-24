@@ -10,6 +10,7 @@ import {
 } from '../../utils/constants';
 
 import css from './RegistrationPage.module.css';
+import { register } from '../../redux/auth/authOperations';
 
 const FORM_INITIAL_VALUES = {
   name: '',
@@ -40,13 +41,9 @@ const RegistrationPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    // dispatch(
-    //   addContact({
-    //     ...values,
-    //   })
-    // );
-    // actions.resetForm();
-    console.log(values);
+    console.log('values', values);
+    dispatch(register(values));
+    actions.resetForm;
   };
 
   return (
