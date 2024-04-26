@@ -16,10 +16,11 @@
 
 .NameNumberContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 16px;
   align-items: start;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .formLabel {

@@ -1,14 +1,9 @@
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding-bottom: 10px;
-}
 .navLink {
-  display: flex;
-  /* padding: 15px; */
-  color: black;
+  display: inline-block;
   text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #2a363b;
 }
 .navLink:hover {
   color: blue;

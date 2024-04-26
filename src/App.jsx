@@ -1,20 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 
 // import Loader from './components/Loader/Loader';
 import HomePage from './pages/HomePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import LoginPage from './pages/LoginPage';
-import { ContactsPage } from './pages/ContactsPage';
+// import { ContactsPage } from './pages/ContactsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Layout from './components/Layout';
-
-// import HomePage from './pages/HomePage';
-// import ContactsPage from './pages/ContactsPage';
-// import LoginPage from './pages/LoginPage';
-// import NotFoundPage from './pages/NotFoundPage';
-// import RegistrationPage from './pages/RegistrationPage';
-// import Layout from './components/Layout';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from './redux/auth/authOperations';
+import ContactsPage from './pages/ContactsPage';
 
 // const HomePage = lazy(() => import('./pages/HomePage'));
 // const MoviesPage = lazy(() => import('./pages/MoviesPage'));
@@ -22,6 +18,12 @@ import Layout from './components/Layout';
 // const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Routes>

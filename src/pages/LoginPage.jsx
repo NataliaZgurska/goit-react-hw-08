@@ -10,6 +10,7 @@ import {
 } from '../utils/constants';
 
 import css from './RegistrationPage/RegistrationPage.module.css';
+import { login } from '../redux/auth/authOperations';
 
 const FORM_INITIAL_VALUES = {
   email: '',
@@ -28,17 +29,13 @@ const LoginSchema = Yup.object().shape({
     ),
 });
 
-const RegistrationPage = () => {
+const LoginPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    // dispatch(
-    //   addContact({
-    //     ...values,
-    //   })
-    // );
-    // actions.resetForm();
-    console.log(values);
+    console.log('login values', values);
+    dispatch(login(values));
+    actions.resetForm();
   };
 
   return (
@@ -82,7 +79,7 @@ const RegistrationPage = () => {
             </label>
           </div>
           <button type="submit" className={css.formAddBtn}>
-            Register
+            Login
           </button>
         </Form>
       </Formik>
@@ -90,7 +87,7 @@ const RegistrationPage = () => {
   );
 };
 
-export default RegistrationPage;
+export default LoginPage;
 
 // const LoginPage = () => {
 //   return <div>LoginPage</div>;

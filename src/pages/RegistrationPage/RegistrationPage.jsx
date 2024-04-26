@@ -22,9 +22,12 @@ const RegistrationSchema = Yup.object().shape({
   name: Yup.string()
     .min(
       MIN_CHAR_NAME_VALIDATION,
-      `Your user name must be less than ${MAX_CHAR_NAME_VALIDATION} characters!`
+      `Enter name more than ${MIN_CHAR_NAME_VALIDATION} characters!`
     )
-    .max(MAX_CHAR_NAME_VALIDATION, 'Too Long!')
+    .max(
+      MAX_CHAR_NAME_VALIDATION,
+      `Enter name less than ${MAX_CHAR_NAME_VALIDATION} characters!`
+    )
     .required('Required'),
   email: Yup.string()
     .required('Email address is required!')
@@ -33,7 +36,7 @@ const RegistrationSchema = Yup.object().shape({
     .required('Password is required!')
     .min(
       MIN_CHAR_PASSWORD_VALIDATION,
-      `Your password must be greater than ${MIN_CHAR_PASSWORD_VALIDATION} characters!`
+      `Enter password longer than ${MIN_CHAR_PASSWORD_VALIDATION} characters!`
     ),
 });
 
@@ -43,7 +46,7 @@ const RegistrationPage = () => {
   const handleSubmit = (values, actions) => {
     console.log('values', values);
     dispatch(register(values));
-    actions.resetForm;
+    actions.resetForm();
   };
 
   return (
