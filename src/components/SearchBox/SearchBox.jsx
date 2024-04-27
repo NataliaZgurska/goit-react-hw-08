@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import TextField from '@mui/material/TextField';
 
 import { selectFilter } from '../../redux/filters/selectors';
 import { changeFilter } from '../../redux/filters/slice';
@@ -12,14 +13,21 @@ const SearchBox = () => {
 
   return (
     <div className={css.filterContainer}>
-      <p>Search contacts by name</p>
-      <input
+      {/* <p>Search contacts by name</p> */}
+      <TextField
+        id="outlined-basic"
+        label="Search"
+        variant="outlined"
+        color="primary"
+        onChange={onChangeFilter}
+      />
+      {/* <input
         type="text"
         placeholder="Search..."
         value={filter}
         onChange={onChangeFilter}
         className={css.searchBoxInput}
-      />
+      /> */}
     </div>
   );
 };

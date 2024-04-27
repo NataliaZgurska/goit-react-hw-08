@@ -21,6 +21,7 @@ const Contact = ({ contact }) => {
           {number}
         </p>
       </div>
+
       <button onClick={handleDelete} className={css.deleteBtn}>
         <MdDeleteForever size={36} color="blue" />
       </button>

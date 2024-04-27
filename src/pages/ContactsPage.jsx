@@ -6,6 +6,9 @@ import { fetchContacts } from '../redux/contacts/operations';
 import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
 import ContactList from '../components/ContactList/ContactList';
+import Loader from '../components/Loader/Loader';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import { Helmet } from 'react-helmet-async';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -18,23 +21,20 @@ const ContactsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Phonebook</title>
+      </Helmet>
       <h2>Phonebook</h2>
+      {error && <ErrorMessage title={error} />}
       <ContactForm />
       {isLoading && !error && (
         <b style={{ color: 'green' }}>Request in progress...</b>
       )}
       <SearchBox />
+
       <ContactList />
+      {isLoading && <Loader />}
     </>
   );
 };
 export default ContactsPage;
-// const ContactsPage = () => {
-//   return (
-//     <div>
-//       <p>ContactsPage</p>
-//     </div>
-//   );
-// };
-
-// export default ContactsPage;

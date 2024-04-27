@@ -1,6 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 import {
   MAX_CHAR_NAME_VALIDATION,
@@ -36,48 +38,66 @@ const ContactForm = () => {
 
   return (
     <div className={css.formAddContainer}>
+      {/* <h2>Phonebook</h2> */}
       <Formik
         initialValues={FORM_INITIAL_VALUES}
         validationSchema={FormSchema}
         onSubmit={handleSubmit}
       >
         <Form className={css.formAdd}>
-          <div className={css.NameNumberContainer}>
-            <label className={css.formLabel}>
-              {/* <span>Name:</span> */}
-              <Field
+          <label className={css.formLabel}>
+            {/* <span>Name:</span> */}
+            {/* <Field
                 type="text"
                 name="name"
                 // autoComplete="off"
                 placeholder="name"
                 className={css.formInput}
-              />
-              <ErrorMessage
-                className={css.errorMessage}
-                component="p"
-                name="name"
-              />
-            </label>
+              /> */}
+            <TextField
+              id="outlined-basic"
+              label="Name"
+              variant="outlined"
+              color="primary"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              component="p"
+              name="name"
+            />
+          </label>
 
-            <label className={css.formLabel}>
-              {/* <span>Number:</span> */}
-              <Field
+          <label className={css.formLabel}>
+            {/* <span>Number:</span> */}
+            {/* <Field
                 type="number"
                 name="number"
                 // autoComplete="off"
                 placeholder="number"
                 className={css.formInput}
-              />
-              <ErrorMessage
-                className={css.errorMessage}
-                component="p"
-                name="number"
-              />
-            </label>
-          </div>
-          <button type="submit" className={css.formAddBtn}>
+              /> */}
+            <TextField
+              id="outlined-basic"
+              label="Number"
+              variant="outlined"
+              color="primary"
+              type="number"
+              border="1px solid gray"
+              borderRadius="8px"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              component="p"
+              name="number"
+            />
+          </label>
+
+          {/* <button type="submit" className={css.formAddBtn}>
             Add contact
-          </button>
+          </button> */}
+          <Button type="submit" variant="contained">
+            Add contact
+          </Button>
         </Form>
       </Formik>
     </div>
