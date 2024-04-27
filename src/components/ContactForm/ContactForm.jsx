@@ -2,13 +2,13 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
-import { addContact } from '../../redux/contacts/operations';
 import {
   MAX_CHAR_NAME_VALIDATION,
   MIN_CHAR_NAME_VALIDATION,
 } from '../../utils/constants';
 
 import css from './ContactForm.module.css';
+import { addContact } from '../../redux/contacts/operations';
 
 const FORM_INITIAL_VALUES = {
   name: '',
@@ -30,11 +30,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(
-      addContact({
-        ...values,
-      })
-    );
+    dispatch(addContact(values));
     actions.resetForm();
   };
 
@@ -52,7 +48,7 @@ const ContactForm = () => {
               <Field
                 type="text"
                 name="name"
-                autoComplete="off"
+                // autoComplete="off"
                 placeholder="name"
                 className={css.formInput}
               />
@@ -68,7 +64,7 @@ const ContactForm = () => {
               <Field
                 type="number"
                 name="number"
-                autoComplete="off"
+                // autoComplete="off"
                 placeholder="number"
                 className={css.formInput}
               />
