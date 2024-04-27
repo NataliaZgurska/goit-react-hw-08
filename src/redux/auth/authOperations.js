@@ -12,20 +12,12 @@ const instance = axios.create({
 });
 
 // Utility to add JWT
-// const setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
-// Utility to remove JWT
-// const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
-
 //бере з собою ключ-token
 export const setToken = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+// Utility to remove JWT
 //очищуємо token
 export const clearToken = () => {
   instance.defaults.headers.common.Authorization = '';
@@ -36,13 +28,15 @@ export const clearToken = () => {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async (formData, thunkApi) => {
     try {
-      const { data } = await instance.post('/users/signup', credentials);
+      const { data } = await instance.post('/users/signup', formData);
+      console.log('REGISTER data: ', data);
       setToken(data.token);
+
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (e) {
+      return thunkApi.rejectWithValue(e.message);
     }
   }
 );
@@ -58,7 +52,6 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await instance.post('/users/login', credentials);
-      console.log('login data', data);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -98,10 +91,8 @@ export const refreshUser = createAsyncThunk(
     try {
       const state = thunkApi.getState();
       const token = state.auth.token;
-      console.log('token:', token);
       setToken(token);
       const { data } = await instance.get('/users/current');
-      console.log('REFRESH data: ', data);
 
       return data;
     } catch (e) {
