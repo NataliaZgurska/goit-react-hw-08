@@ -39,14 +39,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={css.formAddContainer}>
-      <Formik
-        initialValues={FORM_INITIAL_VALUES}
-        validationSchema={LoginSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form className={css.formAdd}>
-          <div className={css.NameNumberContainer}>
+    <div className={css.wrap}>
+      <div className={css.formBackground}>
+        <Formik
+          initialValues={FORM_INITIAL_VALUES}
+          validationSchema={LoginSchema}
+          onSubmit={handleSubmit}
+        >
+          <Form className={css.form}>
             <label className={css.formLabel}>
               <span>Email:</span>
               <Field
@@ -54,7 +54,6 @@ const LoginPage = () => {
                 name="email"
                 // autoComplete="off"
                 placeholder="email"
-                className={css.formInput}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -69,7 +68,6 @@ const LoginPage = () => {
                 name="password"
                 // autoComplete="off"
                 placeholder="password"
-                className={css.formInput}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -77,23 +75,18 @@ const LoginPage = () => {
                 name="password"
               />
             </label>
-          </div>
-          {/* <button type="submit" className={css.formAddBtn}>
+
+            {/* <button type="submit" className={css.formAddBtn}>
             Login
           </button> */}
-          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-            Login
-          </Button>
-        </Form>
-      </Formik>
+            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+              Login
+            </Button>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };
 
 export default LoginPage;
-
-// const LoginPage = () => {
-//   return <div>LoginPage</div>;
-// };
-
-// export default LoginPage;

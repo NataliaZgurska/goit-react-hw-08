@@ -50,14 +50,14 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className={css.formAddContainer}>
-      <Formik
-        initialValues={FORM_INITIAL_VALUES}
-        validationSchema={RegistrationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form className={css.formAdd}>
-          <div className={css.NameNumberContainer}>
+    <div className={css.wrap}>
+      <div className={css.formBackground}>
+        <Formik
+          initialValues={FORM_INITIAL_VALUES}
+          validationSchema={RegistrationSchema}
+          onSubmit={handleSubmit}
+        >
+          <Form className={css.form}>
             <label className={css.formLabel}>
               <span>Name:</span>
               <Field
@@ -65,7 +65,6 @@ const RegistrationPage = () => {
                 name="name"
                 // autoComplete="off"
                 placeholder="name"
-                className={css.formInput}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -81,7 +80,6 @@ const RegistrationPage = () => {
                 name="email"
                 // autoComplete="off"
                 placeholder="email"
-                className={css.formInput}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -96,7 +94,6 @@ const RegistrationPage = () => {
                 name="password"
                 // autoComplete="off"
                 placeholder="password"
-                className={css.formInput}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -104,15 +101,16 @@ const RegistrationPage = () => {
                 name="password"
               />
             </label>
-          </div>
-          {/* <button type="submit" className={css.formAddBtn}>
+
+            {/* <button type="submit" className={css.formAddBtn}>
             Register
           </button> */}
-          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-            Register
-          </Button>
-        </Form>
-      </Formik>
+            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+              Register
+            </Button>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };

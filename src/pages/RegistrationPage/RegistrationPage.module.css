@@ -1,9 +1,126 @@
-.formAddContainer {
-  /* width: 800px; */
-  border-radius: 4px;
-  padding: 12px;
-  margin: 0 auto;
+.wrap {
+  /* background-color: #e0ffff; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.formBackground {
+  position: absolute;
+
+  z-index: 1;
+  width: 576px;
+  height: 576px;
+  border-radius: 50%;
+
+  background-color: #f7faff;
+  /* background-color: lightgreen; */
+  animation-name: fadeCircle;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeCircle {
+  0% {
+    width: 800px;
+    height: 800px;
+  }
+  25% {
+    width: 750px;
+    height: 750px;
+  }
+  50% {
+    width: 690px;
+    height: 690px;
+  }
+  75% {
+    width: 620px;
+    height: 620px;
+  }
+  100% {
+    width: 576px;
+    height: 576px;
+  }
+}
+
+.form {
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  left: 14%;
+  top: 15%;
+  max-width: 415px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: white;
+  box-shadow: 0px 6px 50px rgba(217, 229, 255, 0.7);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 18px;
+
+  animation-name: fadeForm;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeForm {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.formLabel {
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.errorMessage {
+  color: red;
+  font-style: italic;
+}
+
+/* .formContainer {
+  width: 100%;
+}
+
+.formAdd {
+  min-width: 415px;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 600;
+}
+ */
+
+/* 
 
 .formAdd {
   display: flex;
@@ -23,11 +140,7 @@
   margin: 0 auto;
 }
 
-.formLabel {
-  display: flex;
-  flex-direction: column;
-  /* gap: 6px; */
-}
+
 
 .formInput {
   width: 286px;
@@ -46,7 +159,7 @@
   border-radius: 8px;
   border: 1px solid gray;
   background-color: #b8b8b894;
-  /* padding: 0.6em 1.2em; */
+  padding: 0.6em 1.2em; 
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -61,4 +174,4 @@
 .formAddBtn:focus,
 .formAddBtn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
