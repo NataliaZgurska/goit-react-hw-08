@@ -23,9 +23,7 @@ export const clearToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
 
-// register - для реєстрації нового користувача.Базовий тип екшену "auth/register".
-// Використовується у компоненті RegistrationForm на сторінці реєстрації.
-
+// register - для реєстрації нового користувача.
 export const register = createAsyncThunk(
   'auth/register',
   async (formData, thunkApi) => {
@@ -33,7 +31,6 @@ export const register = createAsyncThunk(
       const { data } = await instance.post('/users/signup', formData);
       console.log('REGISTER data: ', data);
       setToken(data.token);
-
       return data;
     } catch (e) {
       return thunkApi.rejectWithValue(e.message);
@@ -41,12 +38,7 @@ export const register = createAsyncThunk(
   }
 );
 
-//     login - для логіну існуючого користувача.Базовий тип екшену "auth/login".
-// Використовується у компоненті LoginForm на сторінці логіну.
-/*
- * POST @ /users/login
- * body: { email, password }
- */
+//     login - для логіну існуючого користувача
 export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {

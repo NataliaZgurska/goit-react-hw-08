@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
+// import Button from '@mui/material/Button';
+// import SendIcon from '@mui/icons-material/Send';
 import {
   MAX_CHAR_NAME_VALIDATION,
   MIN_CHAR_NAME_VALIDATION,
@@ -102,12 +102,12 @@ const RegistrationPage = () => {
               />
             </label>
 
-            {/* <button type="submit" className={css.formAddBtn}>
-            Register
-          </button> */}
-            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+            <button type="submit" className={css.formAddBtn}>
               Register
-            </Button>
+            </button>
+            {/* <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+              Register
+            </Button> */}
           </Form>
         </Formik>
       </div>
@@ -116,9 +116,3 @@ const RegistrationPage = () => {
 };
 
 export default RegistrationPage;
-
-// const RegistrationPage = () => {
-//   return <div>RegistrationPage</div>;
-// };
-
-// export default RegistrationPage;
