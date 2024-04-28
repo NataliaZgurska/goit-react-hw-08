@@ -2,7 +2,6 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 
 import {
   MAX_CHAR_NAME_VALIDATION,
@@ -37,7 +36,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={css.formAddContainer}>
+    <div className={css.formContainer}>
       {/* <h2>Phonebook</h2> */}
       <Formik
         initialValues={FORM_INITIAL_VALUES}
@@ -47,19 +46,14 @@ const ContactForm = () => {
         <Form className={css.formAdd}>
           <label className={css.formLabel}>
             {/* <span>Name:</span> */}
-            {/* <Field
-                type="text"
-                name="name"
-                // autoComplete="off"
-                placeholder="name"
-                className={css.formInput}
-              /> */}
-            <TextField
-              id="outlined-basic"
-              label="Name"
-              variant="outlined"
-              color="primary"
+            <Field
+              type="text"
+              name="name"
+              // autoComplete="off"
+              placeholder="Name"
+              className={css.formInput}
             />
+
             <ErrorMessage
               className={css.errorMessage}
               component="p"
@@ -69,22 +63,14 @@ const ContactForm = () => {
 
           <label className={css.formLabel}>
             {/* <span>Number:</span> */}
-            {/* <Field
-                type="number"
-                name="number"
-                // autoComplete="off"
-                placeholder="number"
-                className={css.formInput}
-              /> */}
-            <TextField
-              id="outlined-basic"
-              label="Number"
-              variant="outlined"
-              color="primary"
+            <Field
               type="number"
-              border="1px solid gray"
-              borderRadius="8px"
+              name="number"
+              // autoComplete="off"
+              placeholder="Number"
+              className={css.formInput}
             />
+
             <ErrorMessage
               className={css.errorMessage}
               component="p"

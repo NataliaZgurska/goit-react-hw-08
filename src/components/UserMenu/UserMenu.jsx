@@ -15,7 +15,11 @@ const UserMenu = () => {
 
   return (
     <div className={css.wrapper}>
-      {user && <p className={css.username}>Welcome {user.name}</p>}
+      {user && (
+        <p className={css.welcome}>
+          Welcome <span className={css.username}>{user.name}</span>
+        </p>
+      )}
       <Button onClick={onLogout} variant="outlined">
         Logout
       </Button>

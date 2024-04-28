@@ -10,7 +10,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import Layout from './components/Layout';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from './redux/auth/authOperations';
-import ContactsPage from './pages/ContactsPage';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Container } from './components/Container/Container';

@@ -3,7 +3,13 @@
   align-items: center;
   gap: 12px;
 }
-
-.username {
+.welcome {
   font-weight: 700;
+}
+.username {
+  font-weight: 800;
+  /* color:  #2f85e2; */
+  /* color: #256fbe; */
+  color: blue;
+  font-style: italic;
 }

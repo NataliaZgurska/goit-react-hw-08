@@ -12,20 +12,18 @@ const Contact = ({ contact }) => {
   const handleDelete = () => dispatch(deleteContact(id));
 
   return (
-    <>
-      <div className={css.contactItemTextContainer}>
-        <p className={css.contactItemText}>{name}</p>
+    <div className={css.contactContainer}>
+      <p className={css.contactName}>{name}</p>
 
-        <p className={css.contactItemText}>
-          <FaPhone />
-          {number}
-        </p>
-      </div>
+      <p className={css.contactPhoneNumber}>
+        <FaPhone />
+        {number}
+      </p>
 
       <button onClick={handleDelete} className={css.deleteBtn}>
-        <MdDeleteForever size={36} color="blue" />
+        <MdDeleteForever size={36} color="#2f85e2" />
       </button>
-    </>
+    </div>
   );
 };
 
