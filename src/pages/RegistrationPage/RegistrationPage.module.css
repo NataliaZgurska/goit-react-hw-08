@@ -1,5 +1,4 @@
 .wrap {
-  /* background-color: #e0ffff; */
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -17,8 +16,7 @@
   height: 576px;
   border-radius: 50%;
 
-  /* background-color: #f7faff; */
-  background-color: #f7faff42;
+  background-color: #f9f9f6c9;
   box-shadow: 0px 6px 50px #f7faff42;
   animation-name: fadeCircle;
   animation-duration: 1s;
@@ -107,8 +105,6 @@
   border-radius: 8px;
   border: 1px solid gray;
   background-color: #2f85e2;
-  /* background-color: #256fbe; */
-  /* box-shadow: -1px 4px 4px 0px #8080804d; */
   box-shadow: -4px 4px 5px 0px rgba(115, 111, 115, 1);
 
   color: white;

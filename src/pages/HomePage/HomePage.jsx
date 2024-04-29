@@ -8,13 +8,16 @@ const HomePage = () => {
       <Helmet>
         <title>HomePage</title>
       </Helmet>
-      <div className={css.homePageContainer}></div>
-      <div className={css.imgWrap}>
-        <img src={firstPicture} alt="tulips" className={css.homePageImg} />
-      </div>
+      <div className={css.homePageContainer}>
+        <div className={css.circle}>
+          <p className={css.welcomeText}>
+            Welcome🎉! Save and manage your contacts
+          </p>
+        </div>
 
-      <div className={css.circle}>
-        <p>Welcome to our site, hello🎉!</p>
+        <div className={css.imgWrap}>
+          <img src={firstPicture} alt="tulips" className={css.homePageImg} />
+        </div>
       </div>
     </>
   );

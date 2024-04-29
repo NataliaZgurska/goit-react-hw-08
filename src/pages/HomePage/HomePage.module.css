@@ -1,40 +1,96 @@
 .homePageContainer {
-  width: 100vw;
-  /* height: 100vh; */
+  position: relative;
+  height: 100vh;
+}
 
-  /* background-image: url(./tulips-min.jpg); */
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left 70% top;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.circle {
+  width: 370px;
+  height: 370px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 6px 50px rgba(33 150 243 / 94%);
 
   position: absolute;
-  z-index: 1; */
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation-name: fadeHomePageCircle;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeHomePageCircle {
+  0% {
+    width: 200px;
+    height: 200px;
+  }
+  25% {
+    width: 220px;
+    height: 220px;
+  }
+  50% {
+    width: 270px;
+    height: 270px;
+  }
+  75% {
+    width: 320px;
+    height: 320px;
+  }
+  100% {
+    width: 370px;
+    height: 370px;
+  }
+}
+
+.welcomeText {
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 22px;
+  color: blue;
+
+  animation-name: fadeHomePageWelcomeText;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeHomePageWelcomeText {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .imgWrap {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
+  float: right;
+  width: 600px;
+  height: auto;
+  margin-left: 20px;
 }
 
 .homePageImg {
   width: 100%;
-}
-
-.circle {
-  position: relative;
-  z-index: 2;
-  /* left: 25%;
-  top: 25%; */
-  width: 450px;
-  height: 450px;
-  border-radius: 50%;
-  /* background-color: #f7faff42; */
-  background-color: white;
-  box-shadow: 0px 6px 50px #f7faff42;
 }
