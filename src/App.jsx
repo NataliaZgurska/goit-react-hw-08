@@ -1,25 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-// import Loader from './components/Loader/Loader';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-import LoginPage from './pages/LoginPage';
-// import { ContactsPage } from './pages/ContactsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Layout from './components/Layout';
-import { useDispatch } from 'react-redux';
-import { refreshUser } from './redux/auth/authOperations';
-import ContactsPage from './pages/ContactsPage/ContactsPage';
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Container } from './components/Container/Container';
 import { Section } from './components/Section/Section';
-import HomePage from './pages/HomePage/HomePage';
 
-// const HomePage = lazy(() => import('./pages/HomePage'));
-// const MoviesPage = lazy(() => import('./pages/MoviesPage'));
-// const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
-// const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+import { refreshUser } from './redux/auth/operations';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
+const RegistrationPage = lazy(() =>
+  import('./pages/RegistrationPage/RegistrationPage')
+);
+const LoginPage = lazy(() => import('./pages/LoginPage'));
 
 function App() {
   const dispatch = useDispatch();

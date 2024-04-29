@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './UserMenu.module.css';
-import { selectUser } from '../../redux/auth/authSelectors';
-import { logout } from '../../redux/auth/authOperations';
+import { selectUser } from '../../redux/auth/selectors';
+import { logout } from '../../redux/auth/operations';
+import { clearContacts } from '../../redux/contacts/slice';
 import Button from '@mui/material/Button';
+import css from './UserMenu.module.css';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const onLogout = () => {
-    dispatch(logout());
 
-    // alert('clicked');
+  const onLogout = () => {
+    dispatch(clearContacts());
+    dispatch(logout());
   };
 
   return (

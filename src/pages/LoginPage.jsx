@@ -9,8 +9,8 @@ import {
   MIN_CHAR_PASSWORD_VALIDATION,
 } from '../utils/constants';
 
+import { login } from '../redux/auth/operations';
 import css from './RegistrationPage/RegistrationPage.module.css';
-import { login } from '../redux/auth/authOperations';
 
 const FORM_INITIAL_VALUES = {
   email: '',
@@ -33,7 +33,6 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log('login values', values);
     dispatch(login(values));
     actions.resetForm();
   };

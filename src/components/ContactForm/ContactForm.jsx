@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 
 import {
@@ -8,8 +8,11 @@ import {
   MIN_CHAR_NAME_VALIDATION,
 } from '../../utils/constants';
 
-import css from './ContactForm.module.css';
 import { addContact } from '../../redux/contacts/operations';
+import { selectFilter } from '../../redux/filters/selectors';
+import { clearFilter } from '../../redux/filters/slice';
+
+import css from './ContactForm.module.css';
 
 const FORM_INITIAL_VALUES = {
   name: '',
@@ -29,15 +32,18 @@ const FormSchema = Yup.object().shape({
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
+    if (filter) {
+      dispatch(clearFilter());
+    }
     actions.resetForm();
   };
 
   return (
     <div className={css.formContainer}>
-      {/* <h2>Phonebook</h2> */}
       <Formik
         initialValues={FORM_INITIAL_VALUES}
         validationSchema={FormSchema}
@@ -45,11 +51,9 @@ const ContactForm = () => {
       >
         <Form className={css.formAdd}>
           <label className={css.formLabel}>
-            {/* <span>Name:</span> */}
             <Field
               type="text"
               name="name"
-              // autoComplete="off"
               placeholder="Name"
               className={css.formInput}
             />
@@ -62,11 +66,9 @@ const ContactForm = () => {
           </label>
 
           <label className={css.formLabel}>
-            {/* <span>Number:</span> */}
             <Field
               type="number"
               name="number"
-              // autoComplete="off"
               placeholder="Number"
               className={css.formInput}
             />

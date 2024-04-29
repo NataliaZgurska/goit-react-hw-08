@@ -9,8 +9,8 @@ import {
   MIN_CHAR_PASSWORD_VALIDATION,
 } from '../../utils/constants';
 
+import { register } from '../../redux/auth/operations';
 import css from './RegistrationPage.module.css';
-import { register } from '../../redux/auth/authOperations';
 
 const FORM_INITIAL_VALUES = {
   name: '',
@@ -44,7 +44,6 @@ const RegistrationPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log('RegistrationPage values', values);
     dispatch(register(values));
     actions.resetForm();
   };

@@ -1,9 +1,3 @@
-// Додайте у файл redux / auth / operations.js операції,
-//     оголошені за допомогою createAsyncThunk, для роботи з користувачем:
-
-// Токен авторизованого користувача потрібно зберігати в локальному сховищі
-// за допомогою бібліотеки persist.
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -12,13 +6,11 @@ export const instance = axios.create({
 });
 
 // Utility to add JWT
-//бере з собою ключ-token
 export const setToken = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
-//очищуємо token
 export const clearToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
@@ -29,7 +21,6 @@ export const register = createAsyncThunk(
   async (formData, thunkApi) => {
     try {
       const { data } = await instance.post('/users/signup', formData);
-      console.log('REGISTER data: ', data);
       setToken(data.token);
       return data;
     } catch (e) {
@@ -52,13 +43,7 @@ export const login = createAsyncThunk(
   }
 );
 
-//     logout - для виходу з додатка.Базовий тип екшену "auth/logout".
-// Використовується у компоненті UserMenu у шапці додатку.
-
-/*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- */
+//     logout - для виходу з додатка
 export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
     await instance.post('/users/logout');
@@ -69,14 +54,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   }
 });
 
-//     refreshUser - оновлення користувача за токеном.Базовий тип екшену "auth/refresh".
-// Використовується у компоненті App під час його монтування.
-
-/*
- * GET @ /users/current
- * headers: Authorization: Bearer token
- */
-
+//     refreshUser - оновлення користувача за токеном
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkApi) => {
