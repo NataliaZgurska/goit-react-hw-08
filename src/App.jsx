@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy, useEffect } from 'react';
 
 // import Loader from './components/Loader/Loader';
-import HomePage from './pages/HomePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 // import { ContactsPage } from './pages/ContactsPage';
@@ -15,6 +14,7 @@ import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Container } from './components/Container/Container';
 import { Section } from './components/Section/Section';
+import HomePage from './pages/HomePage/HomePage';
 
 // const HomePage = lazy(() => import('./pages/HomePage'));
 // const MoviesPage = lazy(() => import('./pages/MoviesPage'));
