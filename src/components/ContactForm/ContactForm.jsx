@@ -1,7 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '@mui/material/Button';
 
 import {
   MAX_CHAR_NAME_VALIDATION,
@@ -80,12 +79,9 @@ const ContactForm = () => {
             />
           </label>
 
-          {/* <button type="submit" className={css.formAddBtn}>
+          <button type="submit" className={css.btn}>
             Add contact
-          </button> */}
-          <Button type="submit" variant="contained">
-            Add contact
-          </Button>
+          </button>
         </Form>
       </Formik>
     </div>
