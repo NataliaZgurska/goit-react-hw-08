@@ -1,8 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-// import Button from '@mui/material/Button';
-// import SendIcon from '@mui/icons-material/Send';
 import {
   MAX_CHAR_NAME_VALIDATION,
   MIN_CHAR_NAME_VALIDATION,
@@ -104,9 +102,6 @@ const RegistrationForm = () => {
             <button type="submit" className={css.formAddBtn}>
               Register
             </button>
-            {/* <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-              Register
-            </Button> */}
           </Form>
         </Formik>
       </div>

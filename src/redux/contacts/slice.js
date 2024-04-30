@@ -5,12 +5,12 @@ import { logout } from '../auth/operations';
 export const INITIAL_STATE = {
   contacts: {
     items: [],
-    loading: false,
-    error: null,
   },
   filters: {
     name: '',
   },
+  loading: false,
+  error: null,
 };
 
 const handlePending = state => {
