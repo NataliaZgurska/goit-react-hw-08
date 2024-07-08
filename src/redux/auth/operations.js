@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const instance = axios.create({
-  // baseURL: 'https://connections-api.herokuapp.com',
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://connections-api.herokuapp.com',
+  // baseURL: 'http://localhost:3000',
 });
 
 // Utility to add JWT
@@ -47,6 +47,9 @@ export const login = createAsyncThunk(
 //     logout - для виходу з додатка
 export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
+    const state = thunkApi.getState();
+    console.log(state);
+
     await instance.post('/users/logout');
     clearToken();
     return;
